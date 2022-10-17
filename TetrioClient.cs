@@ -247,6 +247,10 @@
             return await client.GetStringAsync(requestString[..^1]);
         }
 
+        /// <summary>
+        /// Dispose this instance of <see cref="TetrioClient"/>
+        /// </summary>
+        /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)
@@ -260,6 +264,7 @@
             }
         }
 
+        /// <inheritdoc cref="Dispose(bool)"/>
         public void Dispose()
         {
             // Do not modify this code. Place the cleanup code in the method "Dispose(bool disposing)".
