@@ -5,7 +5,7 @@
     /// </summary>
     public class TetrioClient : IDisposable
     {
-        private const string endpoint = "https://ch.tetr.io/api";
+        private const string endpoint = "http://ch.tetr.io/";
         private readonly HttpClient client;
         private bool disposed = false;
 
@@ -29,7 +29,7 @@
             if (disposed)
                 throw new ObjectDisposedException(nameof(TetrioClient));
 
-            string requestString = "/general/stats";
+            string requestString = "api/general/stats";
             return await client.GetStringAsync(requestString);
         }
 
@@ -42,7 +42,7 @@
             if (disposed)
                 throw new ObjectDisposedException(nameof(TetrioClient));
 
-            string requestString = "/general/activity";
+            string requestString = "api/general/activity";
             return await client.GetStringAsync(requestString);
         }
 
@@ -59,7 +59,7 @@
             if (string.IsNullOrWhiteSpace(user))
                 throw new ArgumentNullException(nameof(user));
 
-            string requestString = $"/users/{user.ToLower().Normalize()}";
+            string requestString = $"api/users/{user.ToLower()}";
 
             return await client.GetStringAsync(requestString);
         }
@@ -77,7 +77,7 @@
             if (string.IsNullOrWhiteSpace(user))
                 throw new ArgumentNullException(nameof(user));
 
-            string requestString = $"/users/{user.ToLower().Normalize()}/records";
+            string requestString = $"api/users/{user.ToLower()}/records";
             return await client.GetStringAsync(requestString);
         }
 
@@ -107,7 +107,7 @@
             if (country is null)
                 throw new ArgumentNullException(nameof(country));
 
-            string requestString = "/users/lists/league?";
+            string requestString = "api/users/lists/league?";
 
             if (before != 25000)
                 requestString += $"before={before}&";
@@ -136,7 +136,7 @@
             if (country is null)
                 throw new ArgumentNullException(nameof(country));
 
-            string requestString = "/users/lists/league/all?";
+            string requestString = "api/users/lists/league/all?";
 
             if (!string.IsNullOrWhiteSpace(country))
                 requestString += $"country={country}&";
@@ -170,7 +170,7 @@
             if (country is null)
                 throw new ArgumentNullException(nameof(country));
 
-            string requestString = "/users/lists/xp?";
+            string requestString = "api/users/lists/xp?";
 
             if (before != 0)
                 requestString += $"before={before}&";
@@ -197,7 +197,7 @@
             if (string.IsNullOrWhiteSpace(stream))
                 throw new ArgumentNullException(nameof(stream));
 
-            string requestString = $"/streams/{stream}";
+            string requestString = $"api/streams/{stream}";
             return await client.GetStringAsync(requestString);
         }
 
@@ -214,7 +214,7 @@
             if (limit < 1 || limit > 100)
                 throw new ArgumentOutOfRangeException(nameof(limit));
 
-            string requestString = $"/news?";
+            string requestString = $"api/news?";
 
             if (limit != 25)
                 requestString += $"limit={limit}&";
@@ -239,7 +239,7 @@
             if (limit < 1 || limit > 100)
                 throw new ArgumentOutOfRangeException(nameof(limit));
 
-            string requestString = $"/streams/{stream}?";
+            string requestString = $"api/streams/{stream}?";
 
             if (limit != 25)
                 requestString += $"limit={limit}&";
