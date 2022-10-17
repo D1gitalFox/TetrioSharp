@@ -8,10 +8,15 @@
     <SignAssembly>False</SignAssembly>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>D1gitalFox</Authors>
-    <Description>TETR.IO Tetra Channel API wrapper, written for C#</Description>
+    <Description>TETR.IO Tetra Channel API wrapper, written for C#. Not affilated with TETR.IO or osk.</Description>
     <RepositoryUrl>https://github.com/D1gitalFox/TetrioSharp</RepositoryUrl>
     <PackageTags>tetrio; api</PackageTags>
     <PackageLicenseExpression>AGPL-3.0-or-later</PackageLicenseExpression>
+    <Title>$(AssemblyName)</Title>
+    <Version>1.0.0</Version>
+    <Company />
+    <PackageProjectUrl>https://github.com/D1gitalFox/TetrioSharp</PackageProjectUrl>
+    <PackageIcon>tetra.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,5 +26,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>portable</DebugType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="tetra.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
